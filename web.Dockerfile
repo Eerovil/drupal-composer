@@ -8,3 +8,8 @@ COPY ./composer.json /var/www/drupal/
 COPY ./load.environment.php /var/www/drupal/
 COPY ./phpunit.xml.dist /var/www/drupal/
 COPY ./scripts /var/www/drupal/scripts
+
+RUN composer global require hirak/prestissimo
+
+
+RUN composer install
