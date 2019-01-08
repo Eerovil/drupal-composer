@@ -14,15 +14,9 @@ COPY ./scripts /var/www/drupal/scripts
 
 RUN composer global require hirak/prestissimo
 
-# Install Drush 6.
-RUN composer global require drush/drush:6.*
+RUN composer install
+
+# Install drush command globally
+RUN composer global require drush/drush:9.*
 RUN composer global update
 RUN ln -s /root/.composer/vendor/bin/drush /usr/local/bin/drush
-
-# Add drush registry_rebuild command https://www.drupal.org/project/registry_rebuild
-RUN wget http://ftp.drupal.org/files/projects/registry_rebuild-7.x-2.2.tar.gz && \
-    tar xzf registry_rebuild-7.x-2.2.tar.gz && \
-    rm registry_rebuild-7.x-2.2.tar.gz && \
-    mv registry_rebuild /root/.composer/vendor/drush/drush/commands
-
-RUN composer install
