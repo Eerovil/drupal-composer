@@ -1,0 +1,15 @@
+uuid: 703ff145-228a-4f72-8015-91576d6048dd
+langcode: en
+status: true
+dependencies: {  }
+id: production
+label: Production
+description: ''
+folder: ../config/splits/production
+module: {  }
+theme: {  }
+blacklist: {  }
+graylist: {  }
+graylist_dependents: true
+graylist_skip_equal: true
+weight: 1
