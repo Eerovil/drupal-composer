@@ -1,5 +1,5 @@
 
-version: '2'
+version: '2.1'
 
 services:
   web:
@@ -19,6 +19,8 @@ services:
       # The volumes where our code lies
       - ./web:/var/www/drupal/web
       - ./config:/var/www/drupal/config
+    sysctls:
+      - net.ipv4.ip_unprivileged_port_start=0
   
   db:
     container_name: drupal_db
