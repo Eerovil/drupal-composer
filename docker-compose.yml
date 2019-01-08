@@ -16,8 +16,9 @@ services:
       - /var/www/drupal/web/modules/contrib/
       - /var/www/drupal/web/themes/contrib/
       - /var/www/drupal/web/profiles/contrib/
-      # The volume where our code lies
+      # The volumes where our code lies
       - ./web:/var/www/drupal/web
+      - ./config:/var/www/drupal/config
   
   db:
     container_name: drupal_db

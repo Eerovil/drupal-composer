@@ -9,7 +9,7 @@ id: node.testtype.field_plaintext
 field_name: field_plaintext
 entity_type: node
 bundle: testtype
-label: differentlabel
+label: reallylivelabel
 description: ''
 required: false
 translatable: false
