@@ -10,7 +10,7 @@ services:
     ports:
       - "8085:80"
     volumes:
-      - ./web/drupal:/var/www/drupal
+      - ./web:/var/www/drupal/web
   
   db:
     container_name: drupal_db
