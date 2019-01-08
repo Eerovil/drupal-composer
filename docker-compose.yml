@@ -10,6 +10,13 @@ services:
     ports:
       - "8085:80"
     volumes:
+      # Anonymous volumes for composer-created directories
+      - /var/www/drupal/vendor 
+      - /var/www/drupal/web/core/
+      - /var/www/drupal/web/modules/contrib/
+      - /var/www/drupal/web/themes/contrib/
+      - /var/www/drupal/web/profiles/contrib/
+      # The volume where our code lies
       - ./web:/var/www/drupal/web
   
   db:
