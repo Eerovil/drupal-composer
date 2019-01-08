@@ -1,2 +1,2 @@
-alias exportconf="docker-compose exec web drush config-export --destination=config/site"
-alias importconf="docker-compose exec web drush config-import --source=config/site"
+alias dex="docker-compose exec web drush config-export"
+alias dim="docker-compose exec web drush config-import"
