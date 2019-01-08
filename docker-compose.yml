@@ -11,6 +11,7 @@ services:
       - "8085:80"
     volumes:
       # Anonymous volumes for composer-created directories
+      - /var/www/drupal/.composer/cache
       - /var/www/drupal/vendor 
       - /var/www/drupal/web/core/
       - /var/www/drupal/web/modules/contrib/
@@ -19,6 +20,9 @@ services:
       # The volumes where our code lies
       - ./web:/var/www/drupal/web
       - ./config:/var/www/drupal/config
+      # composer.json/lock for two-way binding.
+      - ./composer.json:/var/www/drupal/composer.json
+      - ./composer.lock:/var/www/drupal/composer.lock
     sysctls:
       - net.ipv4.ip_unprivileged_port_start=0
   

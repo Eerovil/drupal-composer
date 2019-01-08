@@ -10,7 +10,10 @@ USER drupal
 
 RUN mkdir -p /var/www/drupal/config/sync
 
-COPY ./composer.json /var/www/drupal/
+# Change composer file for build step
+ENV COMPOSER composer_tmp.json
+COPY ./composer.json /var/www/drupal/composer_tmp.json
+COPY ./composer.lock /var/www/drupal/composer_tmp.lock
 COPY ./load.environment.php /var/www/drupal/
 COPY ./phpunit.xml.dist /var/www/drupal/
 COPY ./scripts /var/www/drupal/scripts
@@ -23,6 +26,12 @@ RUN composer install
 RUN composer global require drush/drush:9.*
 RUN composer global update
 RUN ln -s /var/www/drupal/.composer/vendor/bin/drush /usr/local/bin/drush
+
+# Change composer file back. The file composer.json is bound to the host
+# with volumes, but cannot be used here just yet.
+ENV COMPOSER composer.json
+RUN rm /var/www/drupal/composer_tmp.json
+RUN rm /var/www/drupal/composer_tmp.lock
 
 # Extra chowns, here to keep previous caches. (May change often)
 USER root
