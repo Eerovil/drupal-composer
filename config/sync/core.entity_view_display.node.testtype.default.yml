@@ -1,0 +1,37 @@
+uuid: fde4d970-c5b5-4cc1-b2c4-a84b57cbfc70
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.testtype.body
+    - field.field.node.testtype.field_developversion
+    - node.type.testtype
+  module:
+    - text
+    - user
+id: node.testtype.default
+targetEntityType: node
+bundle: testtype
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 101
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_developversion:
+    weight: 102
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden: {  }

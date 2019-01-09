@@ -1,11 +1,11 @@
-uuid: null
+uuid: 536dbbf8-7479-4846-bf6c-12afc7d03d83
 langcode: en
 status: true
 dependencies: {  }
-id: develop
-label: Develop
+id: staging
+label: Staging
 description: ''
-folder: ../config/splits/develop
+folder: ../config/splits/staging
 module: {  }
 theme: {  }
 blacklist: {  }
@@ -200,4 +200,4 @@ graylist:
   - views.view.who_s_online
 graylist_dependents: true
 graylist_skip_equal: true
-weight: 0
+weight: 1

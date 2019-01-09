@@ -1,18 +1,16 @@
-uuid: 8aa1d06a-59be-4491-b4b5-766af0b2a8ee
+uuid: 7c629d4a-778d-414e-9c3e-b8e33e252ea1
 langcode: en
 status: true
 dependencies:
   config:
     - field.storage.node.body
-    - node.type.article
+    - node.type.testtype
   module:
     - text
-_core:
-  default_config_hash: Ay3b2hq42cpQTFB_lNu8S2ZxuVIY6-dlBsc7vLeJ-YY
-id: node.article.body
+id: node.testtype.body
 field_name: body
 entity_type: node
-bundle: article
+bundle: testtype
 label: Body
 description: ''
 required: false

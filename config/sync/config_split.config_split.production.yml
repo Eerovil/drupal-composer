@@ -1,11 +1,11 @@
-uuid: null
+uuid: 46a61670-60ff-4884-b999-fcb4428b20eb
 langcode: en
 status: true
 dependencies: {  }
-id: staging
-label: Staging
+id: production
+label: Production
 description: ''
-folder: ../config/splits/staging
+folder: ../config/splits/production
 module: {  }
 theme: {  }
 blacklist: {  }
