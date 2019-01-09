@@ -28,8 +28,14 @@ function drupal() {
             if [ "$args" == "" ]; then
                 args="-y"
             fi
+            # site uuid must match
             docker-compose exec web drush config-set "system.site" uuid $DRUPAL_SITE_UUID -y
+            # the default shortcuts must be deleted...?
+            # https://drupal.stackexchange.com/questions/184495/config-import-error-these-entities-need-to-be-deleted-before-importing
+            docker-compose exec web drush ev '\Drupal::entityManager()->getStorage("shortcut_set")->load("default")->delete();'
+            # First to regular import. This contains configuration for config_split
             docker-compose exec web drush cim $args
+            # Now do config_split import.
             docker-compose exec web drush csim $args
             ;;
         install)
