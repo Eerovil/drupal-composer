@@ -9,7 +9,7 @@ id: node.testtype.field_developversion
 field_name: field_developversion
 entity_type: node
 bundle: testtype
-label: syncversion
+label: stagingversion
 description: ''
 required: false
 translatable: false
