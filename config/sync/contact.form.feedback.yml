@@ -1,4 +1,4 @@
-uuid: eef60e8d-167c-41a9-a495-6bae6c350d38
+uuid: null
 langcode: en
 status: true
 dependencies: {  }
@@ -7,7 +7,7 @@ _core:
 id: feedback
 label: 'Website feedback'
 recipients:
-  - eero.vilpponen@gmail.com
+  - test@test.fi
 reply: ''
 weight: 0
 message: 'Your message has been sent.'
