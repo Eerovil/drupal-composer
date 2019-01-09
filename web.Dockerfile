@@ -1,6 +1,7 @@
-FROM registry.gitlab.com/janpoboril/drupal-composer-docker:7.1-apache
+FROM registry.gitlab.com/janpoboril/drupal-composer-docker:7.2-apache
 RUN apt-get update && apt-get -y install \
     wget \
+    curl \
   && rm -rf /var/lib/apt/lists/*
 
 RUN useradd -M -s /bin/bash -G www-data,staff -d /var/www/drupal drupal
@@ -18,9 +19,14 @@ COPY ./load.environment.php /var/www/drupal/
 COPY ./phpunit.xml.dist /var/www/drupal/
 COPY ./scripts /var/www/drupal/scripts
 
+RUN mkdir -p /var/www/drupal/.composer/
+RUN echo "{}" > /var/www/drupal/.composer/composer.json
+
+RUN cat /var/www/drupal/composer_tmp.json
+
 RUN composer global require hirak/prestissimo
 
-RUN composer install
+RUN composer install --prefer-dist
 
 # Install drush command globally
 RUN composer global require drush/drush:9.*
