@@ -41,6 +41,11 @@ function drupal() {
         install)
             docker-compose exec web drush si -y --account-name=$DRUPAL_ADMIN_USERNAME --account-pass=$DRUPAL_ADMIN_PASSWORD --locale=$DRUPAL_LOCALE
             ;;
+        composer-reload)
+            docker-compose rm -svf web
+            docker-compose build --no-cache web
+            docker-compose up -d
+            ;;
         *)
             docker-compose exec web $command $*
         ;;
