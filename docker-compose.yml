@@ -7,6 +7,8 @@ services:
     build:
       dockerfile: web.Dockerfile
       context: .
+    env_file:
+      - ./web.env
     ports:
       - "8085:80"
     volumes:
