@@ -32,6 +32,9 @@ function drupal() {
             docker-compose exec web drush cim $args
             docker-compose exec web drush csim $args
             ;;
+        install)
+            docker-compose exec web drush si -y --account-name=$DRUPAL_ADMIN_USERNAME --account-pass=$DRUPAL_ADMIN_PASSWORD --locale=$DRUPAL_LOCALE
+            ;;
         *)
             docker-compose exec web $command $*
         ;;
