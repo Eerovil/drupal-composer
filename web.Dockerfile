@@ -22,8 +22,6 @@ COPY ./scripts /var/www/drupal/scripts
 RUN mkdir -p /var/www/drupal/.composer/
 RUN echo "{}" > /var/www/drupal/.composer/composer.json
 
-RUN cat /var/www/drupal/composer_tmp.json
-
 RUN composer global require hirak/prestissimo
 
 RUN composer install --prefer-dist
