@@ -14,7 +14,6 @@ function drupal() {
             if [ "$args" == "" ]; then
                 args="-y"
             fi
-            docker-compose exec web drush config-set "system.site" uuid $DRUPAL_SITE_UUID -y
             docker-compose exec web drush csex $args
             ;;
         import)
@@ -22,7 +21,15 @@ function drupal() {
             if [ "$args" == "" ]; then
                 args="-y"
             fi
+            docker-compose exec web drush csim $args
+            ;;
+        initial_import)
+            args=$*
+            if [ "$args" == "" ]; then
+                args="-y"
+            fi
             docker-compose exec web drush config-set "system.site" uuid $DRUPAL_SITE_UUID -y
+            docker-compose exec web drush cim $args
             docker-compose exec web drush csim $args
             ;;
         *)
